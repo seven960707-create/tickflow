@@ -1,0 +1,6 @@
+{
+  "rootDirectory": "packages/frontend",
+  "buildCommand": "pnpm install && pnpm run build",
+  "installCommand": "pnpm install",
+  "outputDirectory": "dist"
+}
