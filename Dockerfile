@@ -23,9 +23,9 @@ RUN if [ "$USE_CN_MIRROR" = "1" ]; then npm config set registry "$NPM_REGISTRY";
     npm install -g pnpm@9
 # 让 pnpm 走镜像源安装依赖
 RUN if [ "$USE_CN_MIRROR" = "1" ]; then pnpm config set registry "$NPM_REGISTRY"; fi
-COPY frontend/package.json frontend/pnpm-lock.yaml* ./
+COPY packages/frontend/package.json packages/frontend/pnpm-lock.yaml* ./
 RUN pnpm install --frozen-lockfile || pnpm install
-COPY frontend/ ./
+COPY packages/frontend/ ./
 RUN pnpm build
 
 # === Stage 1b: stock-sdk 插件依赖(可选,默认跳过) ===
